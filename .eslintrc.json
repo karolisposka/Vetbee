@@ -8,6 +8,7 @@
     "ecmaVersion": "latest"
   },
   "rules": {
-    "max-len": 0
+    "object-curly-newline": "warn",
+    "newline-per-chained-call": "warn"
   }
 }

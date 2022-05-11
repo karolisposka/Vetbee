@@ -10,4 +10,6 @@ module.exports = {
     database: process.env.SQL_DB,
   },
   port: process.env.PORT,
+  mailServer: process.env.MAIL_SERVER,
+  mailServerPassword: process.env.MAIL_SERVER_PASSWORD,
 };

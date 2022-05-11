@@ -1,7 +1,6 @@
 {
   "name": "wetbee-server",
   "version": "1.0.0",
-  "description": "",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon src/app.js"
@@ -14,13 +13,13 @@
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
-    "node-fetch": "^2.6.7",
-    "prettier": "^2.6.2"
+    "node-fetch": "^2.6.7"
   },
   "devDependencies": {
     "eslint": "^8.15.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "prettier": "^2.6.2"
   }
 }
