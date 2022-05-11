@@ -1,31 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@karolisposka 
-PSlekys
-/
-demo18
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-demo18/.gitignore
-
-Petras Slekys init
-Latest commit b587e8b 13 days ago
- History
- 0 contributors
-130 lines (97 sloc)  2 KB
-   
 # Logs
 logs
 *.log
@@ -156,16 +128,3 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
