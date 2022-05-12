@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
-  jwtToken: process.env.JWT_CODE,
+  jwtSecret: process.env.JWT_CODE,
   mySqlConfig: {
     host: process.env.SQL_HOST,
     user: process.env.SQL_USER,
