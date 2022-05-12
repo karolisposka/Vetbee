@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const usersRoute = require('./routes/v1/users');
+const petsRoute = require('./routes/v1/pets');
 const { port } = require('./config');
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(cors());
 app.get('/', (req, res) => res.send({ msg: 'Server is running' }));
 
 app.use('/v1/users/', usersRoute);
+app.use('/v1/pets/', petsRoute);
 
 app.all('*', (req, res) => res.status(404).send({ err: 'Page not found' }));
 
