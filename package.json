@@ -1,5 +1,5 @@
 {
-  "name": "wetbee-server",
+  "name": "wetbeeserver",
   "version": "1.0.0",
   "scripts": {
     "start": "node app.js",
@@ -8,7 +8,9 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
+    "crypt": "^0.0.2",
+    "cryptr": "^6.0.3",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
@@ -21,5 +23,17 @@
     "eslint-plugin-import": "^2.26.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.6.2"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karolisposka/wetbee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karolisposka/wetbee/issues"
+  },
+  "homepage": "https://github.com/karolisposka/wetbee#readme",
+  "description": ""
 }

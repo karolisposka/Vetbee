@@ -12,4 +12,7 @@ module.exports = {
   port: process.env.PORT,
   mailServer: process.env.MAIL_SERVER,
   mailServerPassword: process.env.MAIL_SERVER_PASSWORD,
+
+  randomEmailCode: process.env.RANDOM_EMAILCODE,
+  emailCrypter: process.env.EMAIL_CRYPTCODE,
 };
