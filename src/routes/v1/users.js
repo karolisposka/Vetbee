@@ -37,7 +37,7 @@ router.post('/login', validation(loginSchema), async (req, res) => {
     const token = jsonwebtoken.sign({ id: data[0].id }, jwtSecret);
     return res.send({ msg: 'login successful', token });
   } catch (err) {
-    console.log(`${err} pirmas`);
+    console.log(err);
     return res.status(500).send({ msg: 'something wrong with server, please try again later' });
   }
 });

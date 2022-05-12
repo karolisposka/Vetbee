@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const usersRoute = require('./routes/v1/users');
 const petsRoute = require('./routes/v1/pets');
+const medsRoute = require('./routes/v1/medications');
 const { port } = require('./config');
 
 const app = express();
@@ -12,6 +13,7 @@ app.get('/', (req, res) => res.send({ msg: 'Server is running' }));
 
 app.use('/v1/users/', usersRoute);
 app.use('/v1/pets/', petsRoute);
+app.use('/v1/medications/', medsRoute);
 
 app.all('*', (req, res) => res.status(404).send({ err: 'Page not found' }));
 
