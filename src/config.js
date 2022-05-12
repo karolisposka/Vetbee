@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
-  jwtToken: process.env.JWT_CODE,
+  jwtSecret: process.env.JWT_CODE,
   mySqlConfig: {
     host: process.env.SQL_HOST,
     user: process.env.SQL_USER,
@@ -12,7 +12,4 @@ module.exports = {
   port: process.env.PORT,
   mailServer: process.env.MAIL_SERVER,
   mailServerPassword: process.env.MAIL_SERVER_PASSWORD,
-
-  randomEmailCode: process.env.RANDOM_EMAILCODE,
-  emailCrypter: process.env.EMAIL_CRYPTCODE,
 };

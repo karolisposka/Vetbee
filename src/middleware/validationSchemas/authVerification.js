@@ -2,23 +2,28 @@ const Joi = require('joi');
 
 const loginSchema = Joi.object({
   email: Joi.string().email().lowercase().required(),
-  password: Joi.string().lowercase().min(6).max(16).required(),
+  password: Joi.string().min(6).max(16).required(),
 });
 
 const registerSchema = Joi.object({
   username: Joi.string().lowercase().required(),
-  password: Joi.string().lowercase().required(),
-  email: Joi.string().email().required(),
+  password: Joi.string().required(),
+  email: Joi.string().email().lowercase().required(),
 });
 
 const changePasswordSchema = Joi.object({
-  email: Joi.string().email().lowercase().required(),
-  oldPassword: Joi.string().lowercase().required(),
-  newPassword: Joi.string().lowercase().min(8).max(16).required(),
+  oldPassword: Joi.string().required(),
+  newPassword: Joi.string().min(6).max(16).required(),
 });
 
 const resetPassword = Joi.object({
-  email: Joi.string(),
+  email: Joi.string().email().lowercase().required(),
+});
+
+const newPassword = Joi.object({
+  email: Joi.string().email().lowercase().required(),
+  token: Joi.string().required(),
+  password: Joi.string().required(),
 });
 
 module.exports = {
@@ -26,4 +31,5 @@ module.exports = {
   registerSchema,
   changePasswordSchema,
   resetPassword,
+  newPassword,
 };
