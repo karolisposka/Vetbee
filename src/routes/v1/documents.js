@@ -5,7 +5,7 @@ const fs = require('fs');
 const mysql = require('mysql2/promise');
 const multer = require('multer');
 const loggedIn = require('../../middleware/auth');
-const { mySqlConfig } = require('../../config');
+const dbController = require('../../controller/database');
 
 const router = express.Router();
 
@@ -18,21 +18,16 @@ const upload = multer({ storage });
 
 router.get('/', loggedIn, async (req, res) => {
   try {
-    const con = await mysql.createConnection(mySqlConfig);
-    const [data] = await con.execute(`SELECT * FROM documents WHERE user_id = ${req.user.id}`);
-    await con.end();
-
+    const data = await dbController(`SELECT * FROM documents WHERE user_id = ${req.user.id}`);
     return res.send(data);
   } catch (err) {
-    return res.status(500).send({ msg: 'something wrong with server, please try again later' });
+    return res.status(500).send({ err: 'Incorrect data' });
   }
 });
 
 router.get('/:filename', loggedIn, async (req, res) => {
   try {
-    const con = await mysql.createConnection(mySqlConfig);
-    const [data] = await con.execute(`SELECT * FROM documents WHERE filename = ${mysql.escape(req.params.filename)}`);
-    await con.end();
+    const data = await dbController(`SELECT * FROM documents WHERE filename = ${mysql.escape(req.params.filename)}`);
 
     if (req.user.id === data[0].user_id) {
       const file = fs.readFileSync(__dirname + `/../../../docs/${req.params.filename}`);
@@ -47,12 +42,10 @@ router.get('/:filename', loggedIn, async (req, res) => {
 
 router.post('/', loggedIn, upload.single('document'), async (req, res) => {
   try {
-    const con = await mysql.createConnection(mySqlConfig);
-    const [data] = await con.execute(`
+    const data = await dbController(`
         INSERT INTO documents (filename, user_id)
         VALUES ('${req.file.filename}', ${req.user.id})
     `);
-    await con.end();
 
     if (!data.insertId) {
       return res.status(500).send({ msg: 'something wrong with server, please try again later' });
